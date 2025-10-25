@@ -1,0 +1,64 @@
+  <!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chúc mừng sinh nhật</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Nhạc nền -->
+  <audio id="birthdayMusic" src="music.mp3" preload="auto" loop></audio>
+
+  <h1>🎂 Nhập ngày 🎂</h1>
+  <input type="text" id="dob" placeholder="nhập vô đây">
+  <button onclick="checkBirthday()">🎁 Mở quà ở đây nè ní 🎁</button>
+
+  <div class="book" id="book" style="display: none;">
+    <div class="page">
+      <div class="text">
+        <h2>💖 Chúc mừng bạn đã mở quà thành công 💖</h2>
+        <p>
+          Chúc mừng sinh nhật nhé, người bạn tuyệt vời của tớ!  
+          Thêm một tuổi mới, mong Ngô Tiến Quốc sẽ luôn giữ được nụ cười rạng rỡ và tâm hồn lạc quan như bây giờ.  
+          Cuộc sống có thể không phải lúc nào cũng dễ dàng, nhưng chỉ cần Quốc vẫn mạnh mẽ và tin tưởng vào bản thân, thì mọi khó khăn rồi cũng sẽ qua.  
+
+          Tớ thật sự rất biết ơn vì đã có một người bạn như Quốc – luôn thẳng thắn, chân thành và ở bên khi cần.  
+          Dù thời gian có trôi, dù mỗi đứa có những con đường riêng, hy vọng rằng tình bạn của tụi mình vẫn luôn bền như thế này.  
+
+          Tuổi mới, chúc Quốc thật nhiều sức khỏe, niềm vui, may mắn và bình an.  
+          Hãy cứ sống hết mình với những gì Quốc yêu thích, theo đuổi ước mơ mà không sợ thất bại, vì tớ tin Quốc làm được tất cả.  
+
+          Một lần nữa, chúc mừng sinh nhật — mong hôm nay của Quốc tràn ngập tiếng cười, bánh kem, và những người thật sự thương Quốc ở bên cạnh 🥰🥰🎂🎂
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function checkBirthday() {
+      const input = document.getElementById("dob").value.trim();
+      const correctDate = "13/11/2006"; // 💡 thay ngày sinh đúng ở đây
+      const book = document.getElementById("book");
+      const music = document.getElementById("birthdayMusic");
+
+      if (input === correctDate) {
+        // Ẩn phần nhập
+        document.querySelector("h1").style.display = "none";
+        document.querySelector("input").style.display = "none";
+        document.querySelector("button").style.display = "none";
+
+        // Hiện lời chúc
+        book.style.display = "block";
+
+        // Giảm âm lượng & phát nhạc
+        music.volume = 0.5;
+        music.play().catch(err => console.log("Không phát được nhạc:", err));
+      } else {
+        alert("Sai rồi nha ahihi 😅, thử lại xem!");
+      }
+    }
+  </script>
+
+</body>
+</html>
